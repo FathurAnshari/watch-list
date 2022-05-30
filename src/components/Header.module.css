@@ -1,0 +1,39 @@
+.main {
+  width: 90%;
+  margin: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.main ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.main ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.main ul li:last-child {
+  margin-right: 0;
+}
+
+.inner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.header ul {
+  display: flex;
+}
