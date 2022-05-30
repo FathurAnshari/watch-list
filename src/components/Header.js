@@ -6,13 +6,13 @@ import classes from "./Header.module.css";
 export const Header = () => {
   return (
     <header>
-      <div className={classes.main}>
+      <div className={classes.container}>
         <div className={classes["inner-content"]}>
           <div className={classes.brand}>
             <Link to="/">WatchList</Link>
           </div>
 
-          <ul className={classes.nav}>
+          <ul className={classes["nav-links"]}>
             <li>
               <Link to="/">Watch List</Link>
             </li>
@@ -20,7 +20,9 @@ export const Header = () => {
               <Link to="/watched">Watched</Link>
             </li>
             <li>
-              <Link to="/add">+ Add</Link>
+              <Link to="/add" className="btn">
+                + Add
+              </Link>
             </li>
           </ul>
         </div>
