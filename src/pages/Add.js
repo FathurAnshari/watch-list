@@ -1,5 +1,9 @@
 import React from "react";
 
 export const Add = () => {
-  return <div>Add</div>;
+  return (
+    <div>
+      <h1>Add</h1>
+    </div>
+  );
 };
