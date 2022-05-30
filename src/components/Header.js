@@ -1,26 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import classes from "./Header.module.css";
-
 export const Header = () => {
   return (
     <header>
-      <div className={classes.container}>
-        <div className={classes["inner-content"]}>
-          <div className={classes.brand}>
+      <div className="container">
+        <div className="inner-content">
+          <div className="brand">
             <Link to="/">WatchList</Link>
           </div>
 
-          <ul className={classes["nav-links"]}>
+          <ul className="nav-links">
             <li>
               <Link to="/">Watch List</Link>
             </li>
+
             <li>
               <Link to="/watched">Watched</Link>
             </li>
+
             <li>
-              <Link to="/add" className="btn">
+              <Link to="/add" className="btn btn-main">
                 + Add
               </Link>
             </li>
