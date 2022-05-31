@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ResultsCard } from "../components/ResultsCard";
+import { ResultsCard } from "../UI/ResultsCard";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
