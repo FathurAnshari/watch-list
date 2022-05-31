@@ -9,6 +9,10 @@ export const WatchList = () => {
       <div className="container">
         <div className="header">
           <h1 className="heading">My Watchlist</h1>
+
+          <span className="count-pill">
+            {watchlist.length} {watchlist.length === 1 ? "Movie" : "Movies"}
+          </span>
         </div>
 
         {watchlist.length > 0 ? (
