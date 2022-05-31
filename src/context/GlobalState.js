@@ -3,7 +3,7 @@ import { AppReducer } from "./AppReducer";
 
 // get local data
 const getLocalWatchlist = JSON.parse(localStorage.getItem("watchlist"));
-const getLocalWatched = JSON.parse(localStorage.getItem("wathced"));
+const getLocalWatched = JSON.parse(localStorage.getItem("watched"));
 
 // initial State
 const initialState = {
@@ -28,11 +28,21 @@ export const GlobalProvider = (props) => {
     dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
   };
 
+  const removeMovieFromWatchlist = (id) => {
+    dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
+  };
+
+  const addMovieToWatched = (movie) => {
+    dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
+  };
+
   // context value
   const contextValue = {
     watchlist: state.watchlist,
     watched: state.watched,
     addMovieToWatchlist,
+    removeMovieFromWatchlist,
+    addMovieToWatched,
   };
 
   return (
