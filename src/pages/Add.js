@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
+import { ResultsCard } from "../components/ResultsCard";
+
 export const Add = () => {
   const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
   const onChangeHandler = (event) => {
     event.preventDefault();
@@ -15,7 +18,12 @@ export const Add = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (!data.errors) {
+          setResults(data.results);
+          console.log(data);
+        } else {
+          setResults([]);
+        }
       });
   };
 
@@ -31,6 +39,16 @@ export const Add = () => {
               onChange={onChangeHandler}
             />
           </div>
+
+          {results.length > 0 && (
+            <ul className="results">
+              {results.map((movie) => (
+                <li key={movie.id}>
+                  <ResultsCard movie={movie} />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>
