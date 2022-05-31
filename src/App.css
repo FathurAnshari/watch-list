@@ -17,19 +17,7 @@ body {
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
+@media screen and (max-width: 600px) {
   .container {
     width: 100%;
   }
@@ -72,6 +60,7 @@ input:focus {
 
 /* Header Styles */
 header {
+  width: 100%;
   background-color: var(--primary);
 }
 

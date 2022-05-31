@@ -1,14 +1,14 @@
 import React, { useReducer, useEffect } from "react";
 import { AppReducer } from "./AppReducer";
 
+// get local data
+const getLocalWatchlist = JSON.parse(localStorage.getItem("watchlist"));
+const getLocalWatched = JSON.parse(localStorage.getItem("wathced"));
+
 // initial State
 const initialState = {
-  watchlist: localStorage.getItem("watchlist")
-    ? JSON.parse(localStorage.getItem("watchlist"))
-    : [],
-  watched: localStorage.getItem("watched")
-    ? JSON.parse(localStorage.getItem("wathced"))
-    : [],
+  watchlist: localStorage.getItem("watchlist") ? getLocalWatchlist : [],
+  watched: localStorage.getItem("watched") ? getLocalWatched : [],
 };
 
 // create context
