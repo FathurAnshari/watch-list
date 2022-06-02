@@ -7,7 +7,20 @@ export const MovieControls = ({ movie, type }) => {
     addMovieToWatched,
     moveToWatchlist,
     removeFromWatched,
+    watched,
+    watchlist,
   } = useContext(GlobalContext);
+
+  const storedMovie = watchlist.find((o) => o.id === movie.id);
+  const storedWatchedMovie = watched.find((o) => o.id === movie.id);
+
+  const watchlistDisabled = storedMovie
+    ? true
+    : storedWatchedMovie
+    ? true
+    : false;
+
+  const watchedDisabled = storedWatchedMovie ? true : false;
 
   const onCLickWatchlistHandler = () => {
     removeMovieFromWatchlist(movie.id);
@@ -49,6 +62,29 @@ export const MovieControls = ({ movie, type }) => {
             <i className="fa-fw fa fa-times"> </i>
           </button>
         </>
+      )}
+      {type === "popular" && (
+        <div className="popular-ctrl-btn">
+          <button
+            className={
+              !watchlistDisabled ? "ctrl-btn-popular" : "ctrl-btn-popular-red"
+            }
+            onClick={onCLickWatchedToWatchlist}
+            disabled={watchlistDisabled}
+          >
+            Add to Watchlist
+          </button>
+
+          <button
+            className={
+              !watchedDisabled ? "ctrl-btn-popular" : "ctrl-btn-popular-red"
+            }
+            onClick={onCLickWatchedHandler}
+            disabled={watchedDisabled}
+          >
+            Watched
+          </button>
+        </div>
       )}
     </div>
   );

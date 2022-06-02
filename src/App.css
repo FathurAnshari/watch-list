@@ -112,6 +112,11 @@ header .nav-links li:last-child {
   margin: 0 auto;
 }
 
+.add-content-popular {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .add-content .input-wrapper input {
   width: 100%;
   background-color: var(--primary);
@@ -183,6 +188,12 @@ header .nav-links li:last-child {
   justify-content: space-between;
   margin-bottom: 30px;
 }
+.movie-page .header-popular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
 .count-pill {
   display: block;
@@ -197,6 +208,13 @@ header .nav-links li:last-child {
 .movie-page .heading {
   color: var(--primary);
   margin: 0;
+}
+
+.movie-page .heading-popular {
+  color: var(--primary);
+  margin: auto;
+  width: 90%;
+  text-align: center;
 }
 
 .movie-grid {
@@ -257,6 +275,10 @@ header .nav-links li:last-child {
   opacity: 1;
 }
 
+.popular-ctrl-btn {
+  display: flex;
+}
+
 .ctrl-btn {
   color: #fefefe;
   background-color: transparent;
@@ -269,6 +291,37 @@ header .nav-links li:last-child {
 
 .ctrl-btn:hover {
   color: var(--secondary);
+  cursor: pointer;
+}
+
+.ctrl-btn-popular {
+  color: #fefefe;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 0rem 0.5rem;
+}
+
+.ctrl-btn-popular:hover {
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.ctrl-btn-popular-red {
+  color: #fefefe;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 0rem 0.5rem;
+  color: rgb(255, 115, 0);
+  cursor: pointer;
+}
+.ctrl-btn-popular-red:hover {
+  color: red;
   cursor: pointer;
 }
 
