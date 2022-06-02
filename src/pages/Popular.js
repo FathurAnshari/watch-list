@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ResultsCard } from "../UI/ResultsCard";
+import { MovieCard } from "../UI/MovieCard";
 
 export const Popular = () => {
   const [results, setResults] = useState([]);
@@ -19,22 +19,21 @@ export const Popular = () => {
   }, []);
 
   return (
-    <div className="add-page">
+    <div className="movie-page">
       <div className="container">
-        <div className="header-popular">
-          <h1 className="heading">Popular Movies</h1>
+        <div className="header">
+          <h1 className="heading-popular">Popular Movies</h1>
         </div>
-        <div className="add-content-popular">
-          {results.length > 0 && (
-            <ul className="results">
-              {results.map((movie) => (
-                <li key={movie.id}>
-                  <ResultsCard movie={movie} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+
+        {results.length > 0 ? (
+          <div className="movie-grid">
+            {results.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} type="popular" />
+            ))}
+          </div>
+        ) : (
+          <h2 className="no-movies">No Popular Movies</h2>
+        )}
       </div>
     </div>
   );

@@ -51,15 +51,18 @@ export const MovieControls = ({ movie, type }) => {
         </>
       )}
       {type === "popular" && (
-        <>
-          <button className="ctrl-btn" onClick={onCLickWatchedToWatchlist}>
-            <i className="fa-fw far fa-eye-slash"> </i>
+        <div className="popular-ctrl-btn">
+          <button
+            className="ctrl-btn-popular"
+            onClick={onCLickWatchedToWatchlist}
+          >
+            Add to Watchlist
           </button>
 
-          <button className="ctrl-btn" onClick={onClickRemoveFromWatch}>
-            <i className="fa-fw fa fa-times"> </i>
+          <button className="ctrl-btn-popular" onClick={onCLickWatchedHandler}>
+            Watched
           </button>
-        </>
+        </div>
       )}
     </div>
   );
