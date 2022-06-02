@@ -20,14 +20,14 @@ export const DetailPage = () => {
   useEffect(() => {
     const getMovie = async () => {
       setIsLoading(true);
-      const current = allList.find((detail) => detail.id == params.movieId);
+      const current = allList.find((detail) => detail.id === params.movieId);
       if (current) {
         setResults(current);
       } else {
         const fetching = await fetch(
           `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
         );
-        await sleep(1000);
+        await sleep(500);
         const data = await fetching.json();
 
         if (!data.errors) {
