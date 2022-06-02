@@ -31,10 +31,10 @@ export const Add = () => {
           setResults([]);
         }
       });
-  };
 
-  const onBlurHandler = () => {
-    setFocus(false);
+    if (enteredInput.length === 0) {
+      setFocus(false);
+    }
   };
 
   return (
@@ -47,13 +47,12 @@ export const Add = () => {
               placeholder="Search for a movie"
               value={query}
               onChange={onChangeHandler}
-              onBlur={onBlurHandler}
             />
           </div>
 
           {!focus && <RecommendedMovies />}
 
-          {results.length > 0 && focus && (
+          {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
                 <li key={movie.id}>
