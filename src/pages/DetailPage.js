@@ -12,12 +12,14 @@ export const DetailPage = () => {
   const { watched, watchlist } = useContext(GlobalContext);
 
   const [result, setResults] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
 
   let allList = [...watched, ...watchlist];
 
   useEffect(() => {
     const getMovie = async () => {
+      setIsLoading(true);
       const current = allList.find((detail) => detail.id == params.movieId);
       if (current) {
         setResults(current);
@@ -37,6 +39,7 @@ export const DetailPage = () => {
           setResults([]);
         }
       }
+      setIsLoading(false);
     };
     getMovie();
   }, []);
@@ -44,7 +47,10 @@ export const DetailPage = () => {
   console.log(result);
 
   if (result === undefined) {
-    return <div>Loading....</div>;
+    if (isLoading) {
+      return <div>Loading....</div>;
+    }
+    return <div>No Movie</div>;
   }
 
   return <DetailCard movie={result} key={result.id} />;
