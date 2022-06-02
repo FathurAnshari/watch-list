@@ -7,7 +7,7 @@ export const MovieCard = ({ movie, type }) => {
   const navigate = useNavigate();
 
   const onClickHandler = () => {
-    navigate(`/popular/${movie.id}`);
+    navigate(`/detail/${movie.id}`);
   };
 
   return (

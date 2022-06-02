@@ -20,7 +20,7 @@ function App() {
         <Route path="/watched" element={<Watched />} />
         <Route path="/popular" element={<Popular />} />
         <Route path="/add" element={<Add />} />
-        <Route path="/popular/movieId" element={<DetailPage />} />
+        <Route path="/detail/:movieId" element={<DetailPage />} />
       </Routes>
     </Fragment>
   );
