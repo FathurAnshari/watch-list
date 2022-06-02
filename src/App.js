@@ -14,7 +14,8 @@ function App() {
     <Fragment>
       <Header />
       <Routes>
-        <Route path="/" element={<WatchList />} />
+        <Route path="/" element={<Popular />} />
+        <Route path="/watchlist" element={<WatchList />} />
         <Route path="/watched" element={<Watched />} />
         <Route path="/popular" element={<Popular />} />
         <Route path="/add" element={<Add />} />

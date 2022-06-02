@@ -309,6 +309,22 @@ header .nav-links li:last-child {
   cursor: pointer;
 }
 
+.ctrl-btn-popular-red {
+  color: #fefefe;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 0rem 0.5rem;
+  color: rgb(255, 115, 0);
+  cursor: pointer;
+}
+.ctrl-btn-popular-red:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .movie-page .no-movies {
   color: #c4c4c4;
   font-size: 3rem;
