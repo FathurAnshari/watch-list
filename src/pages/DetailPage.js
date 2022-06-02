@@ -20,7 +20,9 @@ export const DetailPage = () => {
   useEffect(() => {
     const getMovie = async () => {
       setIsLoading(true);
-      const current = allList.find((detail) => detail.id === params.movieId);
+      const current = allList.find(
+        (detail) => detail.id.toString() === params.movieId
+      );
       if (current) {
         setResults(current);
       } else {
