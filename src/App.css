@@ -112,6 +112,11 @@ header .nav-links li:last-child {
   margin: 0 auto;
 }
 
+.add-content-popular {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .add-content .input-wrapper input {
   width: 100%;
   background-color: var(--primary);
@@ -182,6 +187,12 @@ header .nav-links li:last-child {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
+}
+.movie-page .header-popular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .count-pill {
