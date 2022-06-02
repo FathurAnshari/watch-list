@@ -31,10 +31,6 @@ export const Add = () => {
           setResults([]);
         }
       });
-
-    if (enteredInput.length === 0) {
-      setFocus(false);
-    }
   };
 
   return (
