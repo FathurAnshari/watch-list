@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { RecommendedMovies } from "../components/RecommendedMovies";
 
 import { ResultsCard } from "../UI/ResultsCard";
 
 export const Add = () => {
+  const [focus, setFocus] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
@@ -12,6 +14,11 @@ export const Add = () => {
     const enteredInput = event.target.value;
 
     setQuery(enteredInput);
+    setFocus(true);
+
+    if (enteredInput.length === 0) {
+      setFocus(false);
+    }
 
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${enteredInput}`
@@ -26,6 +33,10 @@ export const Add = () => {
       });
   };
 
+  const onBlurHandler = () => {
+    setFocus(false);
+  };
+
   return (
     <div className="add-page">
       <div className="container">
@@ -36,10 +47,13 @@ export const Add = () => {
               placeholder="Search for a movie"
               value={query}
               onChange={onChangeHandler}
+              onBlur={onBlurHandler}
             />
           </div>
 
-          {results.length > 0 && (
+          {!focus && <RecommendedMovies />}
+
+          {results.length > 0 && focus && (
             <ul className="results">
               {results.map((movie) => (
                 <li key={movie.id}>
