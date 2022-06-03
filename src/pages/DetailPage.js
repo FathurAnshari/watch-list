@@ -3,6 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import { DetailCard } from "../UI/DetailCard";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -50,7 +51,7 @@ export const DetailPage = () => {
 
   if (result === undefined) {
     if (isLoading) {
-      return <div>Loading....</div>;
+      return <LoadingSpinner />;
     }
     return <div>No Movie</div>;
   }

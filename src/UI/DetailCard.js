@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+
+import classes from "./DetailCard.module.css";
 import { GlobalContext } from "../context/GlobalState";
 
 export const DetailCard = ({ movie }) => {
@@ -25,11 +27,11 @@ export const DetailCard = ({ movie }) => {
   };
 
   return (
-    <div className="result-card">
-      <div className="poster-wrapper">
+    <div className={classes.wrapper}>
+      <div>
         {movie.poster_path ? (
           <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             alt={`${movie.title} Poster`}
           />
         ) : (
@@ -37,28 +39,18 @@ export const DetailCard = ({ movie }) => {
         )}
       </div>
 
-      <div className="info">
-        <div className="header">
-          <h3 className="title">{movie.title}</h3>
-          <h4 className="release-date">
-            {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
-          </h4>
+      <div className={classes.info}>
+        <div>
+          <h3>{movie.title}</h3>
+          <h4>{movie.release_date ? movie.release_date : "-"}</h4>
           <h5>{movie.overview}</h5>
         </div>
 
-        <div className="controls">
-          <button
-            onClick={onClickHandler}
-            disabled={watchlistDisabled}
-            className="btn"
-          >
+        <div className={classes.control}>
+          <button onClick={onClickHandler} disabled={watchlistDisabled}>
             Add to Watchlist
           </button>
-          <button
-            onClick={onClickToWatched}
-            disabled={watchedDisabled}
-            className="btn"
-          >
+          <button onClick={onClickToWatched} disabled={watchedDisabled}>
             Add movie to watched
           </button>
         </div>
