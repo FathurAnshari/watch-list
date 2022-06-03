@@ -16,7 +16,9 @@ export const DetailPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
 
-  let allList = [...watched, ...watchlist];
+  const { movieId } = params;
+
+  const allList = [...watched, ...watchlist];
 
   useEffect(() => {
     const getMovie = async () => {
@@ -35,7 +37,7 @@ export const DetailPage = () => {
 
         if (!data.errors) {
           const newMovie = data.results.find(
-            (detail) => detail.id == params.movieId
+            (detail) => detail.id.toString() === params.movieId
           );
           setResults(newMovie);
         } else {
