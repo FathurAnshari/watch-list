@@ -13,6 +13,7 @@
 .info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -25,13 +26,13 @@
 }
 
 .info h5 {
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background-color: white;
-  width: 90%;
+  width: fit-content;
   font-size: medium;
-  margin: auto;
+  margin: 0 4rem;
 }
 
 .control {

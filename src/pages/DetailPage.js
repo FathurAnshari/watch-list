@@ -17,7 +17,6 @@ export const DetailPage = () => {
   useEffect(() => {
     const getMovie = async () => {
       setIsLoading(true);
-
       const fetching = await fetch(
         `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
       );

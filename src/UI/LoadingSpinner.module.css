@@ -23,3 +23,23 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 380px) {
+  .spinner {
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+  }
+  .spinner:after {
+    content: " ";
+    display: block;
+    margin: auto;
+    left: 50%;
+    margin-left: 7.5rem;
+    margin-top: 12.5rem;
+    border-radius: 50%;
+    border: 6px solid teal;
+    border-color: teal transparent teal transparent;
+    animation: spinner 1.2s linear infinite;
+  }
+}
