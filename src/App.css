@@ -153,6 +153,10 @@ header .nav-links li:last-child {
   color: transparent;
 }
 
+.result-card .poster-wrapper:hover {
+  cursor: pointer;
+}
+
 .result-card .info {
   display: flex;
   flex-direction: column;
@@ -164,6 +168,10 @@ header .nav-links li:last-child {
   color: var(--primary);
   font-weight: 600;
   margin: 0;
+}
+
+.result-card .info .title:hover {
+  cursor: pointer;
 }
 
 .result-card .info .release-date {
