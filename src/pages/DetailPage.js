@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
-import { GlobalContext } from "../context/GlobalState";
+
 import { DetailCard } from "../UI/DetailCard";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
@@ -10,44 +10,30 @@ function sleep(ms) {
 }
 
 export const DetailPage = () => {
-  const { watched, watchlist } = useContext(GlobalContext);
-
   const [result, setResults] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
 
-  const { movieId } = params;
-
-  const allList = [...watched, ...watchlist];
-
   useEffect(() => {
     const getMovie = async () => {
       setIsLoading(true);
-      const current = allList.find(
-        (detail) => detail.id.toString() === params.movieId
-      );
-      if (current) {
-        setResults(current);
-      } else {
-        const fetching = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-        );
-        await sleep(500);
-        const data = await fetching.json();
 
-        if (!data.errors) {
-          const newMovie = data.results.find(
-            (detail) => detail.id.toString() === params.movieId
-          );
-          setResults(newMovie);
-        } else {
-          setResults([]);
-        }
+      const fetching = await fetch(
+        `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      );
+      await sleep(500);
+      const data = await fetching.json();
+
+      if (!data.errors) {
+        setResults(data);
+      } else {
+        setResults([]);
       }
-      setIsLoading(false);
     };
+    setIsLoading(false);
+
     getMovie();
-  }, []);
+  }, [params.movieId]);
 
   console.log(result);
 

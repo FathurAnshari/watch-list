@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { GlobalContext } from "../context/GlobalState";
 
 export const ResultsCard = ({ movie }) => {
+  const navigate = useNavigate();
   const { addMovieToWatchlist, addMovieToWatched, watchlist, watched } =
     useContext(GlobalContext);
 
@@ -24,9 +27,13 @@ export const ResultsCard = ({ movie }) => {
     addMovieToWatched(movie);
   };
 
+  const onDetailHandler = () => {
+    navigate(`/detail/${movie.id}`);
+  };
+
   return (
     <div className="result-card">
-      <div className="poster-wrapper">
+      <div onClick={onDetailHandler} className="poster-wrapper">
         {movie.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
@@ -39,7 +46,9 @@ export const ResultsCard = ({ movie }) => {
 
       <div className="info">
         <div className="header">
-          <h3 className="title">{movie.title}</h3>
+          <h3 onClick={onDetailHandler} className="title">
+            {movie.title}
+          </h3>
           <h4 className="release-date">
             {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
           </h4>
