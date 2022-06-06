@@ -48,6 +48,10 @@ export const Add = () => {
 
           {!focus && <RecommendedMovies />}
 
+          {results.length === 0 && (
+            <h1 className="no-movies">No movies that you are looking for!</h1>
+          )}
+
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (

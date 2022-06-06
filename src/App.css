@@ -430,3 +430,8 @@ header .nav-links li:last-child {
   font-size: 3rem;
   text-align: center;
 }
+.no-movies {
+  color: #c4c4c4;
+  font-size: 3rem;
+  text-align: center;
+}

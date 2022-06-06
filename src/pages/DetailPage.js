@@ -12,25 +12,36 @@ function sleep(ms) {
 export const DetailPage = () => {
   const [result, setResults] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const params = useParams();
 
   useEffect(() => {
     const getMovie = async () => {
       setIsLoading(true);
-      const fetching = await fetch(
-        `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=950ee0b0d8d5aa5b45c502b3404f7e4a&language=en-US`
-      );
-      await sleep(500);
-      const data = await fetching.json();
+      setError(null);
 
-      if (!data.errors) {
-        setResults(data);
-      } else {
-        setResults([]);
+      try {
+        const fetching = await fetch(
+          `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=950ee0b0d8d5aa5b45c502b3404f7e4a&language=en-US`
+        );
+        await sleep(500);
+        if (!fetching.ok) {
+          throw new Error("Something went wrong!");
+        }
+
+        const data = await fetching.json();
+
+        if (!data.errors) {
+          setResults(data);
+        } else {
+          setResults([]);
+        }
+      } catch (error) {
+        setError(error.message);
       }
+      setIsLoading(false);
     };
-    setIsLoading(false);
-
     getMovie();
   }, [params.movieId]);
 
@@ -40,7 +51,7 @@ export const DetailPage = () => {
     if (isLoading) {
       return <LoadingSpinner />;
     }
-    return <div>No Movie</div>;
+    return <h2 className="no-movies">{error}</h2>;
   }
 
   return <DetailCard movie={result} key={result.id} />;
