@@ -21,9 +21,9 @@ export const RecommendedMovies = () => {
 
   return (
     <div className="add-page">
-      <div className="container">
+      <div className="container-nowplaying">
         <div>
-          <h1>Now Playing Movie</h1>
+          <h1 className="heading-popular">Now Playing Movie</h1>
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (

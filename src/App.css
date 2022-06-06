@@ -23,6 +23,12 @@ body {
   }
 }
 
+@media screen and (max-width: 450px) {
+  .container {
+    width: 100%;
+  }
+}
+
 *,
 *:before,
 *:after {
@@ -262,6 +268,13 @@ header .nav-links li:last-child {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 450px) {
+  .result-card .controls button {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+
 /* Movie Page */
 .movie-page {
   padding: 30px 0;
@@ -308,6 +321,13 @@ header .nav-links li:last-child {
   margin: auto;
   width: 90%;
   text-align: center;
+}
+.heading-popular {
+  color: var(--primary);
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .movie-grid {
