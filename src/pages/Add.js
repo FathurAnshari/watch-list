@@ -7,9 +7,11 @@ export const Add = () => {
   const [focus, setFocus] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [isTyping, setIsTyping] = useState(true);
 
   const onChangeHandler = (event) => {
     event.preventDefault();
+    setIsTyping(true);
 
     const enteredInput = event.target.value;
 
@@ -27,6 +29,7 @@ export const Add = () => {
       .then((data) => {
         if (!data.errors) {
           setResults(data.results);
+          setIsTyping(false);
         } else {
           setResults([]);
         }
@@ -48,7 +51,7 @@ export const Add = () => {
 
           {!focus && <RecommendedMovies />}
 
-          {results.length === 0 && (
+          {results.length === 0 && !isTyping && (
             <h1 className="no-movies">No movies that you are looking for!</h1>
           )}
 
