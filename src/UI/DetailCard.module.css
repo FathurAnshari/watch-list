@@ -54,6 +54,23 @@
   line-height: 1.1;
 }
 
+@media screen and (max-width: 380px) {
+  .control button {
+    padding: 8px 10px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    border: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    line-height: 1.1;
+    margin: 3px;
+  }
+}
+
 .control button:hover {
   background-color: #1aa762;
   opacity: 1;

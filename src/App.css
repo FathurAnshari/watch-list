@@ -295,6 +295,14 @@ header .nav-links li:last-child {
   margin: 0;
 }
 
+@media screen and (max-width: 380px) {
+  .movie-page .heading {
+    color: var(--primary);
+    margin: 0;
+    font-size: x-large;
+  }
+}
+
 .movie-page .heading-popular {
   color: var(--primary);
   margin: auto;
