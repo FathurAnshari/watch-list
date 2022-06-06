@@ -17,7 +17,7 @@ body {
   margin-left: auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .container {
     width: 100%;
   }
@@ -43,7 +43,7 @@ body {
   line-height: 1.1;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .btn {
     padding: 5px 10px;
     background-color: var(--secondary);
@@ -121,7 +121,7 @@ header .inner-content {
   }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   header .inner-content {
     width: 100%;
     display: flex;
@@ -220,7 +220,7 @@ header .nav-links li:last-child {
   color: transparent;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .result-card .poster-wrapper {
     margin-right: 0px;
   }
@@ -295,7 +295,7 @@ header .nav-links li:last-child {
   margin: 0;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .movie-page .heading {
     color: var(--primary);
     margin: 0;
@@ -323,7 +323,7 @@ header .nav-links li:last-child {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 450px) {
   .movie-grid {
     grid-template-columns: repeat(1, 1fr);
   }

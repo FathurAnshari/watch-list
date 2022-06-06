@@ -54,7 +54,7 @@
   line-height: 1.1;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .control button {
     padding: 8px 10px;
     background-color: var(--secondary);
