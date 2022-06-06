@@ -15,11 +15,11 @@ function App() {
     <Fragment>
       <Header />
       <Routes>
-        <Route path="/" element={<Popular />} />
-        <Route path="/watchlist" element={<WatchList />} />
-        <Route path="/watched" element={<Watched />} />
-        <Route path="/popular" element={<Popular />} />
-        <Route path="/add" element={<Add />} />
+        <Route path="/*" element={<Popular />} />
+        <Route path="/watchlist" exact element={<WatchList />} />
+        <Route path="/watched" exact element={<Watched />} />
+        <Route path="/popular" exact element={<Popular />} />
+        <Route path="/add" exact element={<Add />} />
         <Route path="/detail/:movieId" element={<DetailPage />} />
       </Routes>
     </Fragment>
