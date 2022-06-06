@@ -6,7 +6,7 @@ export const Popular = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/popular?api_key=950ee0b0d8d5aa5b45c502b3404f7e4a&language=en-US&page=1`
     )
       .then((res) => res.json())
       .then((data) => {
